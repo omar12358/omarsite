@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمر محمد | نجار ومصمم CNC</title>
+
+    <!-- Google Fonts (Poppins & Cairo for Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Boxicons (Icons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        /* ====================
+           CSS - الجزء الخاص بالتنسيق
+           ==================== */
+
+        /* ----- المتغيرات العامة ----- */
+        :root {
+            --primary-color: #865c3b; /* Brownish color for carpentry theme */
+            --secondary-color: #f97316;
+            --bg-color: #fdfaf6; /* Light cream background */
+            --text-color: #333;
+            --text-light: #6c757d;
+            --white-color: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        /* ----- إعادة تعيين الإعدادات الأساسية ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p.section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #a57c5a, #865c3b);
+            color: var(--white-color);
+            box-shadow: 0 4px 15px rgba(134, 92, 59, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(134, 92, 59, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #6d4a2e;
+        }
+
+        /* ----- الهيدر وشريط التنقل ----- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            background-color: rgba(253, 250, 246, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            margin-left: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a.active::after, .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* ----- قسم البداية (Hero) ----- */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin: 10px 0 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .play-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .play-btn-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(134, 92, 59, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        
+        .hero-image-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), #c4a185);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--bg-color);
+            z-index: 2;
+        }
+
+        /* ----- قسم الخدمات ----- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover, .service-card.highlight {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--white-color);
+        }
+        
+        .service-card .icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 2.5rem;
+        }
+        .icon-1 { background-color: #fef3c7; color: #d97706; }
+        .icon-2 { background-color: #fce7f3; color: #db2777; }
+        .icon-3 { background-color: #ecfdf5; color: #10b981; }
+        .icon-4 { background-color: #eef2ff; color: #6366f1; }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* ----- قسم معرض الأعمال ----- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: var(--white-color);
+            text-align: right;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.3rem;
+        }
+        
+        .portfolio-btn-wrapper {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* ----- قسم آراء العملاء ----- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card .quote-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: var(--border-color);
+            z-index: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-weight: 700;
+        }
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ----- الفوتر ----- */
+        footer {
+            background-color: #261f18;
+            color: #a1a1aa;
+            text-align: center;
+            padding: 30px 5%;
+        }
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: var(--white-color);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ----- التجاوبية (Responsive Design) ----- */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                right: auto;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+                transition: left 0.4s ease;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            .hero .container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-image {
+                margin-bottom: 50px;
+                width: 350px;
+                height: 350px;
+            }
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h2.section-title { font-size: 2rem; }
+            .hero { padding-top: 120px; }
+            .hero-text h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====================
+         HTML - الجزء الخاص بهيكل الصفحة
+         ==================== -->
+
+    <!-- ------ الهيدر وشريط التنقل ------ -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">عمر <i class='bx bxs-color-fill'></i></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#services">خدماتي</a></li>
+                <li><a href="#portfolio">أعمالي</a></li>
+                <li><a href="#testimonials">العملاء</a></li>
+            </ul>
+            <a href="mailto:omartwabtah@gmail.com" class="btn btn-primary">تواصل معي</a>
+            <i class='bx bx-menu menu-toggle'></i>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ------ قسم البداية (Hero) ------ -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-text">
+                    <h1>نجار ومصمم CNC محترف</h1>
+                    <p class="section-subtitle" style="text-align: right; margin-bottom: 30px;">أجمع بين حرفة النجارة التقليدية ودقة تقنية الـCNC لإنتاج قطع فنية فريدة ومصممة خصيصاً لتلبية احتياجاتك.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">شاهد أعمالي</a>
+                        <a href="https://wa.me/972597342330" target="_blank" class="play-btn">
+                            <span class="play-btn-icon"><i class='bx bxl-whatsapp'></i></span>
+                            تواصل واتساب
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- ارفع صورتك الشخصية على موقع مثل imgbb.com وضع الرابط هنا -->
+                    <img src="musically.jpg" alt="عمر محمد - نجار ومصمم CNC">
+                    <div class="hero-image-bg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------ قسم الخدمات ------ -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">خدماتي الاحترافية</h2>
+                <p class="section-subtitle">أقدم حلولاً متكاملة في مجال النجارة والتصميم الرقمي، مع التركيز على الجودة والدقة في كل تفصيل.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card highlight">
+                        <div class="icon icon-2"><i class='bx bxs-vector'></i></div>
+                        <h3>تنفيذ CNC</h3>
+                        <p>قص ونقش وتشكيل الأخشاب ومواد أخرى بدقة متناهية باستخدام أحدث ماكينات CNC.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon icon-1"><i class='bx bx-ruler'></i></div>
+                        <h3>تصميم أثاث</h3>
+                        <p>تصميم قطع أثاث مودرن وكلاسيك حسب الطلب، تجمع بين الجمال والوظيفة العملية.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon icon-3"><i class='bx bxs-cabinet'></i></div>
+                        <h3>أعمال خشبية مخصصة</h3>
+                        <p>تنفيذ كافة الأعمال الخشبية من أبواب، خزائن، ديكورات جدارية، ومطابخ عصرية.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon icon-4"><i class='bx bxs-wrench'></i></div>
+                        <h3>تركيب وتجميع</h3>
+                        <p>خدمات تركيب وتجميع الأثاث والقطع المصنعة باحترافية لضمان أفضل نتيجة نهائية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------ قسم معرض الأعمال ------ -->
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="section-title">من أعمالي</h2>
+                <p class="section-subtitle">تصفح مجموعة من المشاريع التي نفذتها، والتي تظهر دقة العمل وجمال التصميم.</p>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="474474601_122172404636052175_7657328652209277692_n.jpg" alt="ديكور CNC">
+                        <div class="portfolio-overlay"><h3>ديكورات سقفية CNC</h3></div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="474563398_122172435908052175_4259228296434368328_n.jpg" alt="أثاث مخصص">
+                        <div class="portfolio-overlay"><h3>مرايا عصرية و حديثة</h3></div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="475088975_122173142462052175_1519095160865964576_n.jpg" alt="أبواب خشب">
+                        <div class="portfolio-overlay"><h3>أبواب خشبية فاخرة</h3></div>
+                    </div>
+                     <div class="portfolio-item">
+                        <img src="474039707_122172297446052175_7696100229692370291_n.jpg" alt="مطبخ عصري">
+                        <div class="portfolio-overlay"><h3>مطبخ عصري مخصص</h3></div>
+                    </div>
+                </div>
+                <div class="portfolio-btn-wrapper">
+                    <a href="mailto:omarthwabtah@gmail.com" class="btn btn-secondary">اطلب تصميمك الخاص</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------ قسم آراء العملاء ------ -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="section-title">ماذا قال عملائي عني</h2>
+                <p class="section-subtitle">رضا العميل هو شهادة أعتز بها، وهي الدافع لتقديم الأفضل دائماً.</p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <i class='bx bxs-quote-right quote-icon'></i>
+                        <div class="testimonial-content">
+                            <p>"التعامل مع عمر كان تجربة ممتازة. جودة العمل والتصنيع تجاوزت كل توقعاتنا. دقة في المواعيد واهتمام بأدق التفاصيل. أنصح به بشدة."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                <div class="author-info">
+                                    <h4>عبدالله السالم</h4>
+                                    <p>صاحب فيلا، الرياض</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class='bx bxs-quote-right quote-icon'></i>
+                        <div class="testimonial-content">
+                            <p>"أفضل مصمم تعاملت معه لتنفيذ ديكورات CNC. حول أفكاري إلى واقع ملموس بتصاميم إبداعية وجودة تنفيذ عالية جداً. العمل النهائي كان تحفة فنية."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2">
+                                <div class="author-info">
+                                    <h4>نورة خالد</h4>
+                                    <p>مهندسة ديكور</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ------ الفوتر ------ -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/16kvm1MDLa/" target="_blank" aria-label="Facebook"><i class='bx bxl-facebook-square'></i></a>
+            <a href="https://wa.me/972597342330" target="_blank" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+            <a href="mailto:omarthwabtah@gmail.com" aria-label="Email"><i class='bx bxs-envelope'></i></a>
+        </div>
+        <p>© 2024 جميع الحقوق محفوظة | عمر محمد</p>
+    </footer>
+
+    <!-- ✅ الجزء الصحيح من الجافاسكريبت داخل مكانه الصحيح ✅ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- وظيفة قائمة التنقل في الهاتف (Hamburger Menu) ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggle.classList.remove('bx-menu');
+                    menuToggle.classList.add('bx-x');
+                } else {
+                    menuToggle.classList.remove('bx-x');
+                    menuToggle.classList.add('bx-menu');
+                }
+            });
+            
+            // --- إغلاق القائمة عند الضغط على رابط ---
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuToggle.classList.remove('bx-x');
+                        menuToggle.classList.add('bx-menu');
+                    }
+                });
+            });
+
+            // --- تفعيل الرابط في شريط التنقل بناءً على القسم الحالي في الصفحة ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLi = document.querySelectorAll('.nav-links a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLi.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') == '#' + current) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>
